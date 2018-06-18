@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Task">
+
+    <typeAlias  alias="egovMap"          type = "egovframework.rte.psl.dataaccess.util.EgovMap"/>
+    <typeAlias  alias="userSearchVO"     type = "stask.com.user.service.UserDefaultVO"/>
+    <typeAlias  alias="userVO"           type = "egovframework.com.uss.umt.service.UserManageVO"/>
+    <typeAlias  alias="userManageVO"     type = "stask.com.user.service.UserManageVO"/>
+    <typeAlias  alias="taskVO"           type = "stask.com.task.service.TaskVO"/>
+
+    <select id="staskTaskDAO.taskList"  parameterClass="userSearchVO" resultClass="egovMap">
+        SELECT  *
+        FROM    TB_TASKLIST
+        LIMIT #recordCountPerPage# OFFSET #firstIndex# 
+    </select>
+    
+    <select id="staskTaskDAO.taskListTotCnt" parameterClass="userSearchVO" resultClass="int">
+            SELECT COUNT(*)    
+            FROM    TB_TASKLIST
+    </select>
+    
+  <!--   <select id ="userManageDAO.selectGetEmplNo" parameterClass="userVO" resultClass="int">
+		<![CDATA[
+            SELECT COUNT(EMPL_NO) + 1
+               FROM    COMTNEMPLYRINFO
+            WHERE ((EMPLYR_BNGDE DIV 10000) = (#emplyrBngde# DIV 10000)) AND AFFILIATION_ID = #affiliationId#
+        ]]>    
+    </select> -->
+    
+    <insert id="staskTaskDAO.taskInsert">
+        <![CDATA[
+            INSERT INTO TB_TASKLIST 
+                   (   T_NM,
+                       T_SDATE,          
+                       T_EDATE,
+                       T_SEQ
+                       )
+             VALUES (
+                     #tNm#,
+                     #tSdate#,
+                     #tEdate#,
+                     (SELECT IFNULL(MAX(T_SEQ*1),0)+1 FROM TB_TASKLIST A))
+        ]]>
+    </insert>
+    
+    <delete id="staskTaskDAO.taskDelete">
+        <![CDATA[
+            DELETE FROM TB_TASKLIST 
+            WHERE T_SEQ=#tSeq#
+        ]]>
+    </delete>
+    
+    <select id="staskTaskDAO.taskSelectView" resultClass="taskVO">
+        <![CDATA[
+            SELECT T_NM tNm, T_SDATE tSdate, T_EDATE tEdate, T_SEQ tSeq
+            FROM TB_TASKLIST
+            WHERE T_SEQ=#tSeq#
+        ]]>
+    </select>
+    
+   <!--  <select id="userManageDAO.selectEmpNo" resultClass="userVO">
+        <![CDATA[
+            SELECT
+                ESNTL_ID           uniqId            ,
+                EMPLYR_ID          emplyrId          ,
+                EMPL_NO            emplNo 			 ,
+                PASSWORD           password			 ,
+                USER_NM            emplyrNm          ,
+                IHIDNUM            ihidnum           , 
+                EMAIL_ADRES		   emailAdres        ,
+                HMTLNUM			   hmtlnum			 ,
+                MBTLNUM			   moblphonNo        ,
+                HOUSE_ADRES        homeadres         ,
+                EMPLYR_BNGDE       emplyrBngde       ,
+                EMPLYR_ENDDE       emplyrEndde       ,
+                EMPLYR_NM_EN       emplyrNmEn        ,
+                EMPLYR_NM_CN       emplyrNmCn        ,
+                OFCPS_ID		   ofcpsId			 ,
+                OFCPS_NM		   ofcpsNm			 ,
+                ORGNZT_ID		   orgnztId			 ,
+                ORGNZT_NM		   orgnztNm			 ,
+                AFFILIATION_ID	   affiliationId	 ,
+                MANAGE_AT          manageAt			 ,
+                BANK_ACCOUNT_NUM   bankAccountNum	 ,
+                BANK_NM            bankNm			 ,
+                DEPOSITOR_NM       depositorNm		 ,
+                ATCH_FILE_ID       atchFileId
+        FROM COMTNEMPLYRINFO
+            WHERE EMPL_NO=#emplNo#
+        ]]>
+    </select>
+    
+    <update id="userManageDAO.updateAtchFileId">
+    <![CDATA[
+            UPDATE COMTNEMPLYRINFO 
+            SET                 
+                ATCH_FILE_ID  =  #atchFileId#
+             WHERE EMPL_NO=#emplNo#    
+     ]]>
+    </update> -->
+    
+    <update id="staskTaskDAO.taskUpdate">
+            UPDATE TB_TASKLIST 
+            SET                 
+                T_NM        =      #tNm#,
+                T_SDATE     =      #tSdate#,
+                T_EDATE     =      #tEdate#
+            WHERE T_SEQ=#tSeq#
+    </update>
+    
+  <!--   <update id="userManageDAO.updateFoodEmail">
+            UPDATE tb_foodexpenses
+            SET                 
+                EMAIL_ADRES		   =      #emailAdres#
+            WHERE EMPL_NO = #emplNo# AND
+            	  EMPL_NM = #emplyrNm#
+    </update>
+       
+    <update id="userManageDAO.updateParkingEmail">
+            UPDATE tb_parkingstub
+            SET                 
+                EMAIL_ADRES		   =      #emailAdres#
+            WHERE EMPL_NO = #emplNo# AND
+            	  EMPL_NM = #emplyrNm#
+    </update>
+    
+    <insert id="userManageDAO.insertUserHistory_S">
+        <![CDATA[
+            INSERT INTO COMTHEMPLYRINFOCHANGEDTLS 
+                (   
+                    EMPL_NO             ,                    
+                    AF_ORGNZT_ID           ,
+                    AF_ORGNZT_NM		,
+                    AF_OFCPS_NM			,
+                    AF_OFCPS_ID			,
+                    CHANGE_DE           ,
+                    RM					)
+            SELECT                     
+                    EMPL_NO             ,                    
+                    ORGNZT_ID           ,
+                    ORGNZT_NM          ,
+                    OFCPS_NM             ,
+                    OFCPS_ID			,
+                    EMPLYR_BNGDE		,
+                    #rm#
+            FROM COMTNEMPLYRINFO
+            WHERE EMPL_NO = #emplNo#
+        ]]>
+    </insert>
+    
+    <insert id="userManageDAO.insertLeavingUserHistory">
+        <![CDATA[
+            INSERT INTO COMTHEMPLYRINFOCHANGEDTLS 
+                (   
+                    EMPL_NO             ,                    
+                    AF_ORGNZT_ID           ,
+                    AF_ORGNZT_NM		,
+                    AF_OFCPS_NM			,
+                    AF_OFCPS_ID			,
+                    CHANGE_DE           ,
+                    RM					)
+            SELECT                     
+                    EMPL_NO             ,                    
+                    ORGNZT_ID           ,
+                    ORGNZT_NM          ,
+                    OFCPS_NM             ,
+                    OFCPS_ID			,
+                    EMPLYR_ENDDE		,
+                    #rm#
+            FROM COMTNEMPLYRINFO
+            WHERE EMPL_NO = #emplNo#
+        ]]>
+    </insert>
+    
+    <select id="userManageDAO.checkIdDplct_S" resultClass="int">
+        <![CDATA[
+            SELECT COUNT(1) usedCnt
+                FROM(
+                SELECT
+                    EMPLYR_ID             userId
+                FROM    COMTNEMPLYRINFO
+                UNION ALL
+                SELECT
+                    ENTRPRS_MBER_ID        userId
+                FROM    COMTNENTRPRSMBER
+                UNION ALL
+                SELECT
+                    MBER_ID               userId
+                FROM    COMTNGNRLMBER
+                ) A
+            WHERE userId = #checkId#
+        ]]>
+    </select>
+    
+    <update id="userManageDAO.updatePassword_S">
+        <![CDATA[
+            UPDATE COMTNEMPLYRINFO 
+            SET 
+                   PASSWORD   =  #password#
+            WHERE  ESNTL_ID  = #uniqId#
+        ]]>
+    </update>
+    
+    <select id="userManageDAO.selectPassword_S" resultClass="userVO">
+        <![CDATA[
+            SELECT
+                    PASSWORD          password 
+            FROM    COMTNEMPLYRINFO
+            WHERE   ESNTL_ID=#uniqId#
+        ]]>
+    </select>
+    
+    <select id="userManageDAO.searchId_S" resultClass="int">
+    	SELECT COUNT(*) FROM COMTNEMPLYRINFO WHERE EMPLYR_ID = #checkId#
+    </select>
+    
+        <update id="userManageDAO.updateUserFileId">
+            UPDATE COMTNEMPLYRINFO 
+            SET                 
+                ATCH_FILE_ID       =      #atchFileId#
+            WHERE ESNTL_ID = #uniqId#
+    </update> -->
+</sqlMap>

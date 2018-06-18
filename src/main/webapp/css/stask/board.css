@@ -1,0 +1,143 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+/* sch */
+.schgroup { border:3px solid #e5e5e5; width: 100%; box-sizing: border-box; padding: 10px; text-align: center; background: #fff}
+.schgroup .k-input { text-align: left !important}
+
+.tablesch { font-size: 1.2rem; width: 100%; border: 1px solid #ccc}
+.tablesch td, .tablesch th { white-space: normal; text-overflow: ellipsis; vertical-align: middle !important; height: 30px;}
+.tablesch td, .tablesch th { border:1px solid #ccc; padding:8px 15px; color:#000; vertical-align:middle; font-size:1.1rem; }
+.tablesch th { font-weight: 600; background: #ececec; }
+.tablesch td { text-align: left; }
+.tablesch td .formgroup { display:inline-block !important; width: 100%; vertical-align: bottom!important}
+.tablesch td .formgroup .k-textbox {width: 200px !important; height: 30px !important;font-size: 1.1rem !important;}
+.tablesch td .formgroup .select .k-input { font-size: 1.1rem !important}
+.tablesch td .formgroup button[type="button"] { height: 30px !important; vertical-align: middle; position: relative; padding: 0 15px }
+
+
+/* list */
+.boardnum { position: relative; bottom: -20px}
+
+
+.tmenu { background: #fff; color: #000; transition: .5s; font-size: 1.3rem; vertical-align: middle !important}
+.tmenu:hover, .tmenu.on { background: #3d63ba !important; color: #fff; transition: .5s}
+
+.disabled { cursor:not-allowed; background:#ededed}
+
+.table-fixed { width: 100%; overflow: auto; border-bottom: 1px solid #ccc; border-top: 1px solid #ccc}
+.table-fixed table { width: auto; min-width: 100% }
+.table-fixed table td, .table-fixed table th { white-space: nowrap;}
+
+.table-fixed2 { width:100% !important; overflow: auto; border-bottom: 1px solid #ccc; border-top: 1px solid #ccc}
+.table-fixed2 table { width: auto; min-width: 100%}
+.table-fixed2 table td { white-space: nowrap !important;}
+.table-fixed2 table th:nth-child(2) { white-space: nowrap !important;}
+
+.table-fixed3 { width:100% !important; overflow: auto; border-bottom: 1px solid #ccc; border-top: 1px solid #ccc}
+.table-fixed3 table { width: auto; min-width: 100%}
+.table-fixed3 table td { white-space: nowrap !important; width: 190px !important}
+.table-fixed3 table th:nth-child(2) { white-space: nowrap !important;}
+
+
+
+/* tablelist */
+.tablelist { width:100%; border-top:2px solid #007dbe !important; border:1px solid #bbb; background: #fff}
+.tablelist td .state {padding: 2px 0; font-size: 1.1rem; width: 75px; display: inline-block}
+.tablelist .ths { padding-left: 34px !important;}
+.tablelist.td01 td:nth-child(1) { text-align: left}
+.tablelist td .state02 {padding: 2px 0; font-size: 1.1rem; width: 50px; display: inline-block}
+.tablelist td .fa-exclamation { color: #eb6b00 !important; margin-right: 3px;}
+.tablelist th { height: 30px; vertical-align: middle;}
+.tablelist td, .tablelist th { white-space: normal; text-overflow: ellipsis; vertical-align: middle !important}
+.tablelist td .select { text-align: left !important}
+.tablelist thead th, .tablelist tbody th { font-size:1.2rem; font-weight:600; padding:2px; background:#ececec; color:#000; border:1px solid #bbb; vertical-align: middle; min-height: 30px}
+.tablelist tbody tr:hover { background:#fbfbfb;}
+.tablelist tr td { border:1px solid #e2e5ec; padding:8px; text-align:center; color:#000; vertical-align:middle; font-size:1.2rem; }
+.tablelist tr a, .tablelist tr a:hover, .tablelist tr a:visited {color:#007dbe; }
+.tablelist tr a:hover { text-decoration:underline;}
+.nohover tr:hover { background:none !important;}
+.tablelist td.nodata { height: 150px; font-weight: 600;}
+.tablelist td.nodata:hover { background: #fff !important }
+.tablelist .fa-thumb-tack { margin-right: 3px;}
+.boardtxt { float: right; font-size: 1.3rem; margin-bottom: 5px;}
+.tablelist .itext { height: 25px !important; font-size: 1.2rem; vertical-align: middle}
+td.tcontents { min-height: 200px; vertical-align: top !important}
+td.comment { vertical-align: top !important}
+.tablelist .btn { max-height: 30px; padding: 3px 8px !important; box-sizing: border-box; vertical-align: top !important; font-size: 1.2rem !important}
+.tablelist tfoot tr, .tablelist tfoot tr:hover { background: #feffda !important; font-weight: 800}
+.listview { position: relative; left: 20px; top: 15px; line-height: 36px}
+.listview02 { display:inline-block; margin-left:20px; }
+.tablelist.tdsum { border-top: none !important; background: #feffda; font-weight: 800}
+.tablelist.tdsum tr:hover {background:none !important;}
+.tablelist.nborder { border-top:1px solid #bbb; border: none !important}
+.tablelist.tfixed th, .tablelist.tfixed td {white-space: nowrap;}
+.tablelist.tlistline tbody td { padding: 4px !important}
+td.plus { background: #dbf1ff}
+td.minus { background: #ffdbe9}
+.tablelist .labeln label { margin-right: -2px;}
+.tablelist td .fa-save { margin-left: 5px;}
+
+
+/* border */
+.bt { border-top:none !important}
+.bl { border-left:none !important}
+.br { border-right:none !important}
+.bm { border-bottom:none !important}
+.borderline td { border: 1px solid #bbb !important;}
+
+
+/* tableview */
+.tableview { width:100%; border-top:2px solid #bbb; background: #fff}
+.tableview th { font-weight:600; padding:10px 5px; background: #ececec; color:#000; text-align:center; border-bottom:1px solid #bbb; border-top:1px solid #bbb !important; vertical-align:middle; }
+.tableview td, .tableview th { white-space: normal; text-overflow: ellipsis; font-size:1.2rem;  }
+.tableview th a, .tableview th a:hover, .tableview th a:visited {color:#000 !important;}
+.tableview td { border-bottom:1px solid #e2e5ec; padding:10px 5px; color:#6f6f6f; text-align:left; vertical-align:middle; font-size:1.2rem; line-height:1.6}
+.tableview td a, .tableview td a:hover, .tableview td a:visited {color:#6f6f6f}
+.tableview td a:hover { text-decoration:underline;}
+.tableview td img { max-width:100%; }
+.tableview td .tcontents { vertical-align: top !important}
+.cnumber { margin-left: 5px; color: #eb6b00; font-size: 1.2rem}
+.tableview td .fa-cloud-download-alt { color: #bebebe; font-size: 1.4rem; margin-right: 10px;}
+.tableview td a .fa-cloud-download-alt { color: #3f51b5 !important}
+.tableview td a .fa-window-close { color: #ff4747 !important; font-size: 1.4rem;}
+
+
+
+
+/* tablewrite */
+.tablewrite { width:100%;background: #fff}
+.tablewrite th { background: #ececec; text-align: center !important}
+.tablewrite th i { color: #ff4747}
+.tablewrite > thead > tr > th { text-align: center !important}
+.tablewrite td, .tablewrite th { white-space: normal; text-overflow: ellipsis; font-size:1.2rem; }
+.tablewrite th { font-weight: 600; padding:10px; color:#000; border-bottom:1px solid #bbb; border-top:1px solid #bbb !important; vertical-align:middle; }
+.tablewrite td { border-bottom:1px solid #bbb; border-top:1px solid #bbb; padding:5px; color:#6f6f6f; text-align:left; vertical-align:middle !important; font-size:1.2rem; height: 30px;}
+.tablewrite textarea { box-sizing:border-box;  border:1px solid #e6e6e6; }
+.tablewrite td strong { color: #ff4747}
+.tablewrite td .tablelist th { height: 30px !important; padding: 0 !important}
+.tablewrite td .fa-cloud-download-alt { color: #bebebe; font-size: 1.4rem; margin-right: 10px;}
+.tablewrite td a .fa-cloud-download-alt { color: #3f51b5 !important}
+.tablewrite td a .fa-window-close { color: #ff4747 !important; font-size: 1.4rem;}
+
+
+
+/* pagination */
+.pageNum { width:100%; text-align:center !important; float: left}
+.pagination { margin-top: 5px; }
+.pagination { display: inline-block; padding-left: 0px; border-radius: 4px; }
+.pagination > li {display: inline;}
+.pagination-sm { text-align:center;}
+.pagination-sm > li > a, .pagination-sm > li > span { padding: 3px 10px 5px 10px; font-size: 1.2rem; display:inline-block}
+.pagination > li > a, .pagination > li > span { position: relative; float: left;  margin-left: -1px; line-height: 1.4285; text-decoration: none; background-color: #ffffff; border: 1px solid #dddddd; color: #7a7a7a; margin-right:5px }
+.pagination-sm > li:first-child > a, .pagination-sm > li:first-child > span { }
+.pagination > li:first-child > a, .pagination > li:first-child > span { margin-left: 0px; transition:.5s}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus { z-index: 2; color: #fff; cursor: default; background-color: #000; border-color: #000; font-weight:bold; }
+.pagination-sm > li:last-child > a, .pagination-sm > li:last-child > span {  }
+.pagination > .disabled > span, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus { color: #c9c9c9; cursor: not-allowed; background-color: #ffffff; border-color: #dddddd; }
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus { background-color: #eeeeee; transition:.5s}
+
+
+.tlineb { border: 2px solid #3d63ba !important}

@@ -1,0 +1,236 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+
+/*****************************************************************************************************************************************
+	본고딕 폰트 사용법 : font-weight: 400; - DemiLight / font-weight: 600; - Regular / font-weight: 800; - Bold
+*****************************************************************************************************************************************/
+@font-face {
+	font-family:'Noto Sans KR';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../../fonts/notokr/notokr-demilight.eot);
+	src: local('.'),
+		 url(../../fonts/notokr/notokr-demilight.eot?#iefix) format('embedded-opentype'),
+		 url(../../fonts/notokr/notokr-demilight.woff) format('woff'),
+		 url(../../fonts/notokr/notokr-demilight.ttf) format('truetype');
+}
+@font-face {
+	font-family:'Noto Sans KR';
+	font-style: normal;
+	font-weight: 600;
+	src: url(../../fonts/notokr/notokr-regular.eot);
+	src: local('.'),
+		 url(../../fonts/notokr/notokr-regular.eot?#iefix) format('embedded-opentype'),
+		 url(../../fonts/notokr/notokr-regular.woff) format('woff'),
+		 url(../../fonts/notokr/notokr-regular.ttf) format('truetype');
+}
+@font-face {
+	font-family:'Noto Sans KR';
+	font-style: normal;
+	font-weight: 800;
+	src: url(../../fonts/notokr/notokr-bold.eot);
+	src: local('.'),
+		 url(../../fonts/notokr/notokr-bold.eot?#iefix) format('embedded-opentype'),
+		 url(../../fonts/notokr/notokr-bold.woff) format('woff'),
+		 url(../../fonts/notokr/notokr-bold.ttf) format('truetype');
+}
+
+/*****************************************************************************************************************************************
+	폰트사이즈 정의 - rem : 최상위 폰트정의 값에 상속 (사파리5+, 크롬, 파이어폭스 3.6+, 익스플로러9+) / em, % : 설정한 부모 폰트 사이즈에 상속
+	8px == 0.8rem, 0.8em, 80%
+	9px == 0.9rem, 0.9em, 90%
+	10px == 1rem, 1em, 100% : 기본 사이즈 설정 값
+	11px == 1.1rem, 1.1em, 110%
+	12px == 1.2rem, 1.2em, 120%
+	13px == 1.3rem, 1.3em, 130%
+	14px == 1.4rem, 1.4em, 140%
+	15px == 1.5rem, 1.5em, 150%
+	16px == 1.6rem, 1.6em, 160%
+	17px == 1.7rem, 1.7em, 170%
+	18px == 1.8rem, 1.8em, 180%
+*****************************************************************************************************************************************/
+
+
+/* css reset */
+html, body { height:100%; font-family:'Noto Sans KR', san-serif;  font-weight:400; font-size:12px; color:#3c3c3c; line-height:1.3; letter-spacing:-0.5px} 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, header, hgroup, menu, output, ruby, section, summary, time, mark, audio, video { margin:0; padding:0; border:0; vertical-align:baseline;}
+a:link, a:hover, a:visited { text-decoration:none;}
+h1, h2, h3, h4, h5, h6 { font-weight:normal;}
+.header {min-width: 1400px;}
+.conwrap { min-width: 1200px}
+
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block;}
+ol, ul { list-style:none;}
+blockquote, q { quotes:none;}
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none;}
+table { border-collapse:collapse; border-spacing:0;word-break:break-all;}
+button { border:0; box-sizing:border-box}
+label { position:relative; top:1px; cursor:pointer}
+input[readonly] {background:#ededed}
+textarea {font-family:'Noto Sans KR', san-serif; }
+input[type="checkbox"], input[type="radio"] { position: relative; top: 1px; font-size: 1.4rem}
+input[type="text"] {vertical-align: bottom}
+input[type="text"], .select { border: 1px solid #e6e6e6 !important; background: #fff}
+.select .k-select .k-i-arrow-60-down { position: relative; top: -3px;}
+.select span {word-break:break-all !important}
+.k-list-container { width: auto !important}
+.select .k-input { white-space: nowrap !important; padding-right: 20px !important; font-size: 1.2rem}
+.k-dropdown .k-state-default { background: #fff !important}
+
+
+/* placeholder color 적용 */
+::-webkit-input-placeholder {color:#aaa;}/* WebKit, Blink, Edge */
+:-moz-placeholder {color:#aaa;} /* Mozilla Firefox 4 to 18 */
+::-moz-placeholder {color:#aaa;}/* Mozilla Firefox 19+ */
+:-ms-input-placeholder {color:#aaa;}/* Internet Explorer 10-11 */
+
+.itext, .textarea, .ifile {font-size: 1.2rem; font-family:'Noto Sans KR', san-serif; font-weight:400; box-sizing:border-box;-moz-box-sizing:border-box; -webkit-box-sizing:border-box; -ms-box-sizing:border-box; border:1px solid #b5b5b5; padding:5px; display:inline-block} /* 익스 9부터 적용가능, 아이폰 둥근 모서리 설정빼기 */
+
+
+/* 아래 정의된 값은 복수 클래스로 사용되나, 최대한 지양합니다. */
+.alignL {text-align:left !important;}
+.alignC, .alignC td, th {text-align:center !important;} 
+.alignR {text-align:right !important;}
+
+.fl {float:left !important;}
+.fr {float:right !important;}
+.fn {float:none !important;}
+.clear {clear:both !important;}
+
+.positionWrap {position:relative;}
+.positionL {position:absolute;left:0;top:0;}
+.positionR {position:absolute;right:0;top:0;}
+
+
+/* 간격 (간격조절이 필요할 경우 class 추가) */
+.space01 { width:100%; height:1px; float:left; clear:both;}
+.space05 { width:100%; height:5px; clear:both;}
+.space10 { width:100%; height:10px; float:left; clear:both;}
+.space15 { width:100%; height:15px; float:left; clear:both;}
+.space20 { width:100%; height:20px; float:left; clear:both;}
+.space25 { width:100%; height:25px; float:left; clear:both;}
+.space30 { width:100%; height:30px; float:left; clear:both;}
+.space35 { width:100%; height:35px; float:left; clear:both;}
+.space40 { width:100%; height:40px; float:left; clear:both;}
+.space50 { width:100%; height:50px; float:left; clear:both;}
+.space60 { width:100%; height:60px; float:left; clear:both;}
+.space70 { width:100%; height:70px; float:left; clear:both;}
+.space80 { width:100%; height:80px; float:left; clear:both;}
+.space100 { width:100%; height:100px; float:left; clear:both;}
+.space160 { width:100%; height:160px; float:left; clear:both;}
+.space170 { width:100%; height:170px; float:left; clear:both;}
+
+
+
+/* 가로사이즈 (테이블 col class로 사용 필요할 경우 class 추가) */ 
+.width30 { width:30px !important;}
+.width40 { width:40px !important;}
+.width50 { width:50px !important;}
+.width55 { width:55px !important;}
+.width60 { width:60px !important;}
+.width70 { width:70px !important;}
+.width80 { width:80px !important;}
+.width90 { width:90px !important;}
+.width100 { width:100px !important;}
+.width120 { width:120px !important;}
+.width130 { width:130px !important;}
+.width140 { width:140px !important;}
+.width150 { width:150px !important;}
+.width160 { width:160px !important;}
+.width170 { width:170px !important;}
+.width180 { width:180px !important;}
+.width190 { width:190px !important;}
+.width194 { width:194px !important;}
+.width200 { width:200px !important;}
+.width210 { width:210px !important;}
+.width220 { width:220px !important;}
+.width230 { width:230px !important;}
+.width240 { width:240px !important;}
+.width250 { width:250px !important;}
+.width260 { width:260px !important;}
+.width270 { width:270px !important;}
+.width280 { width:280px !important;}
+.width290 { width:290px !important;}
+.width300 { width:300px !important;}
+.width310 { width:310px !important;}
+.width315 { width:315px !important;}
+.width320 { width:320px !important;}
+.width330 { width:330px !important;}
+.width340 { width:340px !important;}
+.width350 { width:350px !important;}
+.width360 { width:360px !important;}
+.width370 { width:370px !important;}
+.width380 { width:380px !important;}
+.width390 { width:390px !important;}
+.width400 { width:400px !important;}
+.width450 { width:450px !important;}
+.width500 { width:500px !important;}
+.width507 { width:507px !important;}
+.width520 { width:520px !important;}
+.width530 { width:530px !important;}
+.width550 { width:550px !important;}
+.width566 { width:566px !important;}
+.width570 { width:570px !important;}
+.width573 { width:573px !important;}
+.width580 { width:580px !important;}
+.width600 { width:600px !important;}
+.width650 { width:650px !important;}
+.width700 { width:700px !important;}
+.width790 { width:790px !important;}
+.width797 { width:797px !important;}
+.width800 { width:800px !important;}
+.widthauto { width:auto !important;}
+.width20p { width:20% !important;}
+.width48p { width:48% !important;}
+.width49p { width:49% !important;}
+.width50p { width:50% !important;}
+.width80p { width:80% !important;}
+.width85p { width:85% !important;}
+.width90p { width:90% !important;}
+.width100p { width:100% !important;}
+
+
+/* height */
+.height100 { height:100px !important;}
+.height150 { height:150px !important;}
+.height200 { height:200px !important;}
+.height250 { height:250px !important;}
+.height300 { height:300px !important;}
+.height400 { height:400px !important;}
+.height450 { height:450px !important;}
+.height480 { height:480px !important;}
+.height500 { height:500px !important;}
+.height65p { height:65% !important;}
+
+
+/* padding */
+.pdtop10 { padding-top:10px;}
+.pd20 { padding:20px !important;}
+.pd05 td { padding:5px !important;}
+
+
+/* margin-top */
+.mt16 { margin-top: 16px;}
+.mt20 { margin-top: 20px;}
+.mt23 { margin-top: 23px;}
+.mt25 { margin-top: 25px;}
+
+/* margin-left */
+.ml05 { margin-left: 5px;}
+.ml10 { margin-left: 10px;}
+.ml20 { margin-left: 20px;}
+.ml30 { margin-left: 30px;}
+
+
+
+/* input */
+.checkgroup label, .radiogroup label { margin-right: 5px; font-size: 1.4rem}
+.checkbox {}
+.radio { }
+.k-checkbox-label { margin-right:10px;}
+
+td .k-i-calendar, td .k-i-clock {position: relative !important; top: -3px !important;}
